@@ -10,7 +10,21 @@ namespace Nece\Brawl;
  */
 abstract class ClientAbstract
 {
+    protected $error_message;
     protected $config = array();
+
+    /**
+     * 获取错误消息内容
+     *
+     * @Author nece001@163.com
+     * @DateTime 2023-06-17
+     *
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        return $this->error_message;
+    }
 
     /**
      * 设置配置
