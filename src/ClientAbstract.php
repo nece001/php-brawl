@@ -49,11 +49,11 @@ abstract class ClientAbstract
      *
      * @param string $key
      * @param mixed $default
-     * @param boolean $allow_empty 是否接受空值，不接受值为空时返回默认值
+     * @param boolean $allow_empty 是否接受空值，不接受值为空时返回默认值（默认接受）
      *
      * @return mixed
      */
-    public function getConfigValue($key, $default = null, $allow_empty = false)
+    public function getConfigValue($key, $default = null, $allow_empty = true)
     {
         if (isset($this->config[$key])) {
             if ($allow_empty) {
