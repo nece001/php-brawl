@@ -8,7 +8,7 @@ namespace Nece\Brawl;
  * @Author nece001@163.com
  * @DateTime 2023-06-16
  */
-abstract class ResultAbstract
+abstract class ResultAbstract extends ParameterAbstract
 {
 
     protected $raw;
