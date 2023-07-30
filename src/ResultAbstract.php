@@ -10,8 +10,35 @@ namespace Nece\Brawl;
  */
 abstract class ResultAbstract extends ParameterAbstract
 {
-
+    protected $request_id;
+    protected $success = false;
     protected $raw;
+
+    /**
+     * 设置结果成功状态
+     *
+     * @Author nece001@163.com
+     * @DateTime 2023-07-30
+     *
+     * @return void
+     */
+    public function setSuccess()
+    {
+        $this->success = true;
+    }
+
+    /**
+     * 获取结果成功状态
+     *
+     * @Author nece001@163.com
+     * @DateTime 2023-07-30
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->success;
+    }
 
     /**
      * 设置原始数据
@@ -42,6 +69,28 @@ abstract class ResultAbstract extends ParameterAbstract
     }
 
     /**
+     * 获取请求ID
+     * 
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->request_id;
+    }
+
+    /**
+     * 设置请求ID
+     *
+     * @return self
+     */
+    public function setRequestId($request_id)
+    {
+        $this->request_id = $request_id;
+
+        return $this;
+    }
+
+    /**
      * 转为json
      *
      * @Author nece001@163.com
@@ -51,6 +100,6 @@ abstract class ResultAbstract extends ParameterAbstract
      */
     public function toJson()
     {
-        return json_encode($this, JSON_UNESCAPED_UNICODE);
+        return json_encode($this->toArray(), JSON_UNESCAPED_UNICODE);
     }
 }
